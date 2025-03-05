@@ -4,8 +4,8 @@ import { YButton } from "./Button";
 import { YCard } from "./Card";
 
 // 编写一个插件，实现一个install方法
-export { YButton };
-export { YCard };
+// export { YButton };
+// export { YCard };
 export default {
   install(app: App): void {
     app.component(YButton.name!, YButton);
