@@ -32,7 +32,7 @@ export default defineConfig({
     brotliSize: true, // 生成压缩大小报告
     cssCodeSplit: true,
     lib: {
-      entry: "./src/entry.ts",
+      entry: "./src/index.ts",
       name: "YeykbzUI",
       fileName: (format) => `yeykbz-ui.${format}.js`,
       // 导出模块格式

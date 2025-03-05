@@ -33,7 +33,7 @@ export default [
             "**/*.scss",      // 忽略所有 .scss 文件
             "**/*.woff",      // 忽略所有 .woff 文件
             "**/*.ttf",       // 忽略所有 .ttf 文件
-            "src/index.ts",   // 忽略特定文件
+            "src/test.ts",   // 忽略特定文件
             "dist/"           // 忽略 dist 目录
         ]
     },

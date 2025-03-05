@@ -1,14 +1,21 @@
-// @ts-ignore
-import { createApp } from "vue/dist/vue.esm-browser";
-import YeykbzUI from "./entry";
-createApp({
-  template: `
-   <div style="margin-bottom:20px;">
-       <YButton size="small" plain>小按钮</YButton>
-       <YButton size="medium" plain>中按钮</YButton>
-       <YButton size="large" plain>大按钮</YButton>
-   </div>
-       `,
-})
-  .use(YeykbzUI)
-  .mount("#app");
+// src/index.ts
+import "virtual:uno.css";
+import type { App } from "vue";
+import { Button } from "./Button";
+import { Card } from "./Card";
+
+// 定义插件安装方法
+const install = (app: App) => {
+  app.component(Button?.name || 'YButton', Button);
+  app.component(Card?.name || 'YCard', Card);
+};
+
+// 导出命名组件
+// export { Button as YButton, Card as YCard };
+
+// 导出默认插件对象
+export default {
+  install,
+  YButton: Button,
+  YCard: Card
+};

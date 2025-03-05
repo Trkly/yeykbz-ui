@@ -1,7 +1,7 @@
 import "virtual:uno.css";
 import "./style/var.css";
 import DefaultTheme from "vitepress/theme";
-import YeykbzUI from "../../../src/entry";
+import YeykbzUI from "../../../src/index";
 // 主题样式
 import "vitepress-theme-demoblock/dist/theme/styles/index.css";
 // 插件的组件，主要是demo组件
