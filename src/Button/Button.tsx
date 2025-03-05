@@ -62,7 +62,6 @@ export default defineComponent({
         text: "lg",
       },
     };
-    console.log(props.size)
     return () => (
       <button
         class={`
