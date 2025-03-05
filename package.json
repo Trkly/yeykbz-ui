@@ -1,8 +1,9 @@
 {
   "name": "yeykbz-ui",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "type": "module",
+  "style": "dist/yeykbz-ui.css",
   "main": "dist/yeykbz-ui.cjs.js",
   "module": "dist/yeykbz-ui.es.js",
   "browser": "dist/yeykbz-ui.umd.js",
@@ -15,7 +16,7 @@
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "test": "vitest",
-    "lint": "eslint --fix --ext .ts,.vue src",
+    "lint": "eslint --fix --ext .ts,.vue,.tsx src",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\"",
     "prepare": "husky",
     "test:run": "vitest run"

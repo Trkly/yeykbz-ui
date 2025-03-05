@@ -10,6 +10,7 @@ const rollupOptions = {
     globals: {
       vue: "Vue", //UMD 格式下 Vue 的全局变量名
     },
+    assetFileNames: 'yeykbz-ui.[ext]', //指定css文件名
   },
 };
 
@@ -19,7 +20,7 @@ export default defineConfig({
     vue(),
     Unocss({
       configFile: "./uno.config.ts", // 指定配置文件路径
-      mode: "global", // 指定UnocssMode
+      mode: "dist-chunk"
     }),
     vueJsx(),
   ],
@@ -30,7 +31,7 @@ export default defineConfig({
     sourcemap: true,
     // @ts-ignore
     brotliSize: true, // 生成压缩大小报告
-    cssCodeSplit: true,
+    cssCodeSplit: false, // 禁用CSS代码分割，确保所有样式都合并到一个文件中
     lib: {
       entry: "./src/index.ts",
       name: "YeykbzUI",

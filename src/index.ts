@@ -1,5 +1,3 @@
-// src/index.ts
-import "virtual:uno.css";
 import type { App } from "vue";
 import { Button } from "./Button";
 import { Card } from "./Card";
