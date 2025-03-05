@@ -1,13 +1,13 @@
 {
   "name": "yeykbz-ui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "type": "module",
   "main": "dist/yeykbz-ui.cjs.js",
   "module": "dist/yeykbz-ui.es.js",
   "browser": "dist/yeykbz-ui.umd.js",
   "unpkg": "dist/yeykbz-ui.umd.js",
-  "types": "dist/types/src/index.d.ts",
+  "types": "dist/types/src/entry.d.ts",
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "dev": "vite",
