@@ -11,11 +11,15 @@ jobs:
     - name: 读取仓库内容 🐒
       uses: actions/checkout@v4
 
-    - name: 安装 Node.js 和 pnpm ⭐
-      uses: actions/setup-node@v3
+    # - name: 安装 Node.js 和 pnpm ⭐
+    #   uses: actions/setup-node@v3
+    #   with:
+    #     node-version: 18
+
+    - name: 安装 pnpm ⭐
+      uses: pnpm/action-setup@v2.1.0
       with:
-        node-version: 18
-        pnpm-version: latest  # 自动安装 pnpm 并配置 PATH
+        version: 7.2.1
 
     - name: 验证 pnpm 是否可执行 🌠
       run: which pnpm  # 调试用，确认路径
