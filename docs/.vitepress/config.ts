@@ -16,6 +16,10 @@ const config = {
       },
     ],
     sidebar,
+    docFooter:{
+      prev: false,
+      next: false
+    }
   },
   markdown: {
     config: (md) => {
