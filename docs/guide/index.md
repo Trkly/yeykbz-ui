@@ -1,6 +1,6 @@
 # Yeykbz-UI是什么?
 
-Yeykbz-UI是一个基于 [Vite](https://github.com/vitejs/vite)、 [TypeScript](https://www.typescriptlang.org/) 的定制化个人UI，目标是为开发提供开箱即用的高质量组件。
+[Yeykbz-UI](https://github.com/Trkly/yeykbz-ui)是一个基于 [Vite](https://github.com/vitejs/vite)、 [TypeScript](https://www.typescriptlang.org/) 的定制化个人UI，目标是为开发提供开箱即用的高质量组件。
 
 
 
