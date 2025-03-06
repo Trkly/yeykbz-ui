@@ -4,31 +4,30 @@ on: push
 
 jobs:
   pnpm-build:
-     name: pnpm-build工作
-     runs-on: ubuntu-latest
+    name: pnpm-build工作
+    runs-on: ubuntu-latest
 
-     steps:
-     - name: 读取仓库内容 🐒
-       uses: actions/checkout@v4
+    steps:
+    - name: 读取仓库内容 🐒
+      uses: actions/checkout@v4
 
-     - name: 安装Node.js ⭐
-       uses: actions/setup-node@v3
-       with:
-          node-version: 18
-     - name: 显式安装 pnpm （全局）🌟
-       run: npm install -g pnpm
+    - name: 安装 Node.js 和 pnpm ⭐
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        pnpm-version: latest  # 自动安装 pnpm 并配置 PATH
 
-     - name: 验证 pnpm 是否可执行 (调试用) 🌠
-       run: which pnpm
+    - name: 验证 pnpm 是否可执行 🌠
+      run: which pnpm  # 调试用，确认路径
 
-     - name: 安装依赖 🏳️‍🌈
-       run: pnpm install
-       
-     - name: 项目打包 😊
-       run: pnpm run build
+    - name: 安装依赖 🏳️‍🌈
+      run: pnpm install
 
-     - name: 部署 🚀
-       uses: JamesIves/github-pages-deploy-action@v4
-       with:
-         branch: gh-pages
-         folder: build
+    - name: 项目打包 😊
+      run: pnpm run build
+
+    - name: 部署 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: build
