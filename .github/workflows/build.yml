@@ -11,11 +11,15 @@ jobs:
      - name: 读取仓库内容 🐒
        uses: actions/checkout@v4
 
-     - name: 设置Node.js ⭐
+     - name: 安装Node.js ⭐
        uses: actions/setup-node@v3
        with:
-          node-version: 16
-          cache: 'pnpm'  # 自动安装 pnpm 并配置缓存
+          node-version: 18
+     - name: 显式安装 pnpm （全局）🌟
+       run: npm install -g pnpm
+
+     - name: 验证 pnpm 是否可执行 (调试用) 🌠
+       run: which pnpm
 
      - name: 安装依赖 🏳️‍🌈
        run: pnpm install
