@@ -17,9 +17,9 @@ jobs:
     #     node-version: 18
 
     - name: 安装 pnpm ⭐
-      uses: pnpm/action-setup@v2.1.0
+      uses: pnpm/action-setup@v4.1.0
       with:
-        version: 7.2.1
+        version: 10.5.2
 
     - name: 验证 pnpm 是否可执行 🌠
       run: which pnpm  # 调试用，确认路径
