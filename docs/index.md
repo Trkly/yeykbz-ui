@@ -14,9 +14,6 @@ hero:
       link: /guide/
     - theme: alt
       text: View on GitHub
-      link: https://github.com/vuejs/vitepress
-    - theme: alt
-      text: GitHub
       link: https://github.com/Trkly/yeykbz-ui
 
 features:
