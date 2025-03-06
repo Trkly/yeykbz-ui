@@ -11,13 +11,19 @@ jobs:
      - name: 读取仓库内容 🐒
        uses: actions/checkout@v4
 
+     - name: 设置Node.js ⭐
+       uses: actions/setup-node@v3
+       with:
+          node-version: 16
+          cache: 'pnpm'  # 自动安装 pnpm 并配置缓存
+
      - name: 安装依赖 🏳️‍🌈
        run: pnpm install
        
      - name: 项目打包 😊
        run: pnpm run build
 
-     - name: 部署
+     - name: 部署 🚀
        uses: JamesIves/github-pages-deploy-action@v4
        with:
          branch: gh-pages
