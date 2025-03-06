@@ -25,6 +25,7 @@ pnpm docs:dev
 - ⚙️ Unit Testing with Vitest
 - 😃 Eslint + Prettier
 - 🎨 UnoCSS - the instant on-demand atomic CSS engine
+- 🚘 CI/CD with GithubActions
 
 
 ## 安装
