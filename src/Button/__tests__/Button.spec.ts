@@ -13,8 +13,8 @@ describe("YButton 组件测试", () => {
     expect(wrapper.element.getAttribute("class")).toContain("bg-blue-500");
     expect(wrapper.element.getAttribute("class")).toContain("text-white-500");
     expect(wrapper.element.getAttribute("class")).toContain("rounded-lg");
-    expect(wrapper.element.getAttribute("class")).toContain("px-3");
-    expect(wrapper.element.getAttribute("class")).toContain("py-1.5");
+    expect(wrapper.element.getAttribute("class")).toContain("px-2");
+    expect(wrapper.element.getAttribute("class")).toContain("py-2");
 
     // 验证插槽内容
     expect(wrapper.text()).toContain("Click Me");
@@ -24,14 +24,14 @@ describe("YButton 组件测试", () => {
   describe("size 属性测试", () => {
     it("应用 small 尺寸", () => {
       const wrapper = mount(YButton, { props: { size: "small" } });
-      expect(wrapper.element.getAttribute("class")).toContain("px-2");
+      expect(wrapper.element.getAttribute("class")).toContain("px-1");
       expect(wrapper.element.getAttribute("class")).toContain("py-1");
       expect(wrapper.element.getAttribute("class")).toContain("text-sm");
     });
 
     it("应用 large 尺寸", () => {
       const wrapper = mount(YButton, { props: { size: "large" } });
-      expect(wrapper.element.getAttribute("class")).toContain("px-4");
+      expect(wrapper.element.getAttribute("class")).toContain("px-3");
       expect(wrapper.element.getAttribute("class")).toContain("py-2");
       expect(wrapper.element.getAttribute("class")).toContain("text-lg");
     });

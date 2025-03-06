@@ -17,7 +17,7 @@ hero:
       link: https://github.com/vuejs/vitepress
     - theme: alt
       text: GitHub
-      link: https://github.com/iscottt/scott-ui
+      link: https://github.com/Trkly/yeykbz-ui
 
 features:
   - icon: 🎉

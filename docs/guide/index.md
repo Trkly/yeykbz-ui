@@ -10,7 +10,7 @@ Yeykbz-UI是一个基于 [Vite](https://github.com/vitejs/vite)、 [TypeScript](
 
 ```bash
 # 拉取代码
-git clone https://github.com/iscottt/scott-ui.git
+git clone https://github.com/Trkly/yeykbz-ui.git
 # 安装依赖
 pnpm install
 # 运行项目
