@@ -4,6 +4,7 @@
   "description": "",
   "type": "module",
   "style": "dist/yeykbz-ui.css",
+  "homepage": "https://yeykbz-ui-hit.vercel.app/",
   "main": "dist/yeykbz-ui.cjs.js",
   "module": "dist/yeykbz-ui.es.js",
   "browser": "dist/yeykbz-ui.umd.js",
