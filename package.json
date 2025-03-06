@@ -60,5 +60,9 @@
     "vitepress": "^1.0.1",
     "vitepress-theme-demoblock": "^2.0.2",
     "vitest": "^3.0.7"
+  },
+  "engines": {
+    "node": ">=20 <21",
+    "pnpm": ">=10.2.1"
   }
 }
