@@ -4,7 +4,7 @@ on: push
 
 jobs:
   pnpm-build:
-    name: pnpm-build工作
+    name: pnpm-build工作 🏝️
     runs-on: ubuntu-latest
 
     steps:
@@ -30,8 +30,11 @@ jobs:
     - name: 项目打包 😊
       run: pnpm run build
 
+    - name: 组件测试 🛸
+      run: pnpm run test:run
+
     - name: 部署 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages
-        folder: build
+        folder: dist
