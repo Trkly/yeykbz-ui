@@ -30,8 +30,8 @@ features:
     title: 自动化构建流程
     details: 集成GitHub Actions实现代码提交即触发构建，告别手动打包
   - icon: 🔬
-    title: 全面测试覆盖
-    details: 单元测试+E2E测试双保险，每次提交自动验证核心功能
+    title: 组件测试覆盖
+    details: 使用Vitest对组件进行单元测试，每次提交自动验证核心功能
   - icon: 🚀
     title: 持续部署
     details: 自动发布到Vercel，分钟级交付生产环境
