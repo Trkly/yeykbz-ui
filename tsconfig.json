@@ -8,7 +8,7 @@
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
     "jsxImportSource": "vue",  // 声明 Vue 的 JSX 类型来源
-    "types": ["vite/client", "unocss/vite", "@vue/runtime-dom"], // 用于显式引入第三方库的类型声明文件，帮助 TypeScript 理解外部模块的类型定义
+    "types": ["vite/client", "unocss/vite", "@vue/runtime-dom", "vue"], // 用于显式引入第三方库的类型声明文件，帮助 TypeScript 理解外部模块的类型定义
     "esModuleInterop": true, // 允许以 CommonJS 格式编写的模块（如部分 Node.js 库）通过默认导入（import x from 'y'）语法加载，而非强制使用 import * as x from 'y' 的命名空间导入方式
     "baseUrl": ".",             // 基础路径解析
     "paths": {

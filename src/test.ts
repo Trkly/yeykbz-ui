@@ -1,6 +1,6 @@
 // @ts-ignore
 import { createApp } from "vue/dist/vue.esm-browser";
-import YeykbzUI from "./index";
+import { YeykbzUI } from "./index";
 createApp({
   template: `
    <div style="margin-bottom:20px;">

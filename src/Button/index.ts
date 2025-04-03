@@ -1,12 +1,9 @@
+import { DefineComponent } from "vue";
 import Button from "./Button";
-import { App } from "vue";
+import { withInstall } from "../utils/withInstall";
 
-// 导出Button组件
-export { Button };
+// 使用 withInstall 函数来增强 Button 组件
+export const YButton = withInstall(Button as unknown as DefineComponent);
 
-// 导出Vue插件
-export default {
-  install(app: App) {
-    app.component(Button.name!, Button);
-  },
-};
+// 默认导出带install方法的组件
+export default YButton;

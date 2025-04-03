@@ -1,12 +1,9 @@
+import { DefineComponent } from "vue";
 import Card from "./Card";
-import { App } from "vue";
+import { withInstall } from "../utils/withInstall";
 
-// 导出Button组件
-export { Card };
+// 使用 withInstall 函数来增强 Button 组件
+export const YCard = withInstall(Card as unknown as DefineComponent);
 
-// 导出Vue插件
-export default {
-    install(app: App) {
-        app.component(Card.name!, Card);
-    },
-};
+// 默认导出带install方法的组件
+export default YCard;

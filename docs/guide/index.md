@@ -25,7 +25,7 @@ pnpm docs:dev
 - ⚙️ Unit Testing with Vitest
 - 😃 Eslint + Prettier
 - 🎨 UnoCSS - the instant on-demand atomic CSS engine
-- 🚘 CI/CD with GithubActions
+- 🚘 CI/CD with Github Actions
 
 
 ## 安装
@@ -34,31 +34,31 @@ pnpm docs:dev
 pnpm i yeykbz-ui
 ```
 
-## 快速开始
+## 全局注册
 
 ```typescript
 // main.ts
 import { createApp } from "vue";
 import "./style.css";
 import "yeykbz-ui/dist/yeykbz-ui.css"; //导入组件库样式
-import Yeykbz from "yeykbz-ui"; // 导入组件库
+import {YeykbzUI} from "yeykbz-ui";
 import App from "./App.vue";
 
-createApp(App).use(Yeykbz).mount("#app");
+createApp(App).use(YeykbzUI).mount("#app");
 ```
+## 按需引用
+```typescript
+import { createApp } from "vue";
+import "./style.css";
+import "yeykbz-ui/dist/yeykbz-ui.css"; //导入组件库样式
+// 在按需引用时，需要手动引入样式
+import {YButton} from "yeykbz-ui";
+import App from "./App.vue";
 
-
-## vite 插件推荐
-
-如果这些插件对你有帮助，可以给一个 star 支持下
-
-- [vite-plugin-mock](https://github.com/vbenjs/vite-plugin-mock) - 用于本地及开发环境数据 `mock`
-- [vite-plugin-html](https://github.com/vbenjs/vite-plugin-html) - 用于 `html` 模版转换，可以在`html`文件内进行书写模版语法
-- [vite-plugin-style-import](https://github.com/vbenjs/vite-plugin-style-import) - 用于组件库样式按需引入
-- [vite-plugin-imagemin](https://github.com/vbenjs/vite-plugin-imagemin) - 用于打包压缩图片资源
-- [vite-plugin-theme](https://github.com/vbenjs/vite-plugin-theme) - 用于在线切换主题色/黑暗主题适配等主题相关配置
-- [vite-plugin-compression](https://github.com/vbenjs/vite-plugin-compression) - 用于打包输出`.gz`|`.br`文件
-- [vite-plugin-svg-icons](https://github.com/vbenjs/vite-plugin-svg-icons) - 快速生成 `svg sprite`
+// 单独注册
+createApp(App).use(YButton).mount("#app");
+  
+```
 
 ## 浏览器支持
 
