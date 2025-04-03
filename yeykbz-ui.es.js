@@ -66,6 +66,17 @@ const Button = /* @__PURE__ */ defineComponent({
     }, null) : "", slots.default ? slots.default() : ""]);
   }
 });
+const withInstall = (comp) => {
+  const c = comp;
+  c.install = (app) => {
+    if (!c.name || typeof c.name !== "string") {
+      throw new Error("Component must have a valid name property");
+    }
+    app.component(c.name, c);
+  };
+  return c;
+};
+const YButton = withInstall(Button);
 const Card = /* @__PURE__ */ defineComponent({
   name: "YCard",
   props: {
@@ -117,16 +128,20 @@ const Card = /* @__PURE__ */ defineComponent({
     };
   }
 });
+const YCard = withInstall(Card);
+const components = [YButton, YCard];
 const install = (app) => {
-  app.component((Button == null ? void 0 : Button.name) || "YButton", Button);
-  app.component((Card == null ? void 0 : Card.name) || "YCard", Card);
+  components.forEach((component) => {
+    app.use(component);
+  });
 };
-const index = {
+const YeykbzUI = {
   install,
-  YButton: Button,
-  YCard: Card
+  version: "__VERSION__"
 };
 export {
-  index as default
+  YButton,
+  YCard,
+  YeykbzUI
 };
 //# sourceMappingURL=yeykbz-ui.es.js.map
