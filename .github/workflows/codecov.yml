@@ -1,0 +1,39 @@
+# .github/workflows/main.yml
+# This is a basic workflow to help you get started with Actions
+
+name: 测试覆盖率
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# 这个工作流的名称
+# name: CI
+jobs:
+  CodeCov:
+    # 这个工作流的名称
+    name: CodeCov 测试覆盖率 📊
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: 读取仓库内容 🐒
+        uses: actions/checkout@v2
+      - name: 安装 pnpm ⭐
+        uses: pnpm/action-setup@v4.1.0
+        with:
+          version: 10.5.2
+      - name: 验证 pnpm 是否可执行 🌠
+        run: which pnpm # 调试用，确认路径
+      - name: 安装依赖 🏳️‍🌈
+        run: pnpm install
+      - name: 运行测试 🛸
+        run: pnpm coverage
+      - name: 上传测试覆盖率报告 📊
+        uses: codecov/codecov-action@v5
+        with:
+          directory: coverage
+          token: ${{ secrets.CODECOV_TOKEN }}

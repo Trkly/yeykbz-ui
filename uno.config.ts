@@ -6,7 +6,9 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from "unocss";
+import * as dotenv from "dotenv";
 
+dotenv.config(); // 加载环境变量配置文件
 const colors = [
   "white",
   "black",
@@ -50,6 +52,8 @@ const safelist = [
 ];
 
 export default defineConfig({
+  // eslint-disable-next-line no-undef
+  envMode: process.env.NODE_ENV === "production" ? "build" : "dev",
   safelist: safelist,
   content: {
     pipeline: {
