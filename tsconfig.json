@@ -25,7 +25,8 @@
   },
   "include": [
     "./**/*.*",
-    "./shims-vue.d.ts"
+    "./shims-vue.d.ts",
+    "env.d.ts"
   ],
   "exclude": ["node_modules", "dist"],
   "allowSyntheticDefaultImports":"true",

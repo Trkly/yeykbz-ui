@@ -1,0 +1,37 @@
+/* 基础卡片样式 */
+.cardBase {
+  @apply rounded border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900 transition-all duration-300 ease-in-out overflow-hidden;
+}
+
+/* 动态阴影类（通过 JS 控制） */
+.shadowAlways {
+  @apply shadow-lg;
+}
+.shadowHover {
+  @apply shadow-none;
+  &:hover {
+    @apply shadow-lg;
+  }
+}
+.shadowNever {
+  @apply shadow-none;
+}
+
+/* 通用边框样式 */
+.borderSection {
+  @apply border-gray-200 dark:border-gray-700;
+}
+
+/* 内容区域 */
+.contentBase {
+  @apply text-gray-700 dark:text-gray-300 px-4 flex-c;
+}
+
+/* 间距调整 */
+.contentNoHeader { @apply pt-4; }
+.contentNoFooter { @apply pb-4; }
+
+/* 布局类 */
+.flexCenter {
+  @apply flex items-center justify-center;
+}

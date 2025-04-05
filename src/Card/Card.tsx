@@ -1,5 +1,7 @@
 import { defineComponent } from "vue";
 import type { PropType } from "vue";
+import styles from "./Card.module.css"; // 导入 CSS Modules
+
 export default defineComponent({
   name: "YCard",
   props: {
@@ -13,40 +15,31 @@ export default defineComponent({
     },
   },
   setup(props, { slots }) {
-    const shadowClass = {
-      always: "shadow-md",
-      hover: "shadow-none hover:hover:shadow-md",
-      never: "shadow-none",
-    }[props.shadow];
+    // 动态阴影类映射
+    const shadowClassMap = {
+      always: styles.shadowAlways,
+      hover: styles.shadowHover,
+      never: styles.shadowNever,
+    };
 
+    // 插槽存在性判断
     const hasHeader = !!slots.header;
     const hasFooter = !!slots.footer;
     const hasImage = !!slots.image;
-
     return () => (
-      <div
-        class={[
-          "rounded",
-          "border",
-          "border-gray-200",
-          "bg-white",
-          "dark:border-gray-700",
-          "dark:bg-gray-800",
-          shadowClass,
-          "transition-shadow",
-          "overflow-hidden", // 确保图片圆角不溢出
-        ]}
-      >
-        {/* 图片插槽 (顶部) */}
+      <div class={[styles.cardBase, shadowClassMap[props.shadow]]}>
+        {/* 图片插槽 */}
         {hasImage && (
-          <div class="border-b border-gray-200 dark:border-gray-700 felx-c">
+          <div class={[styles.borderSection, styles.flexCenter, "border-b"]}>
             {slots.image?.()}
           </div>
         )}
 
         {/* Header */}
         {hasHeader && (
-          <div class="border-b border-gray-200 dark:border-gray-700 p-4 flex-c">
+          <div
+            class={[styles.borderSection, "border-b p-4", styles.flexCenter]}
+          >
             {slots.header?.()}
           </div>
         )}
@@ -54,11 +47,9 @@ export default defineComponent({
         {/* 内容区 */}
         <div
           class={[
-            "text-gray-700 dark:text-gray-300",
-            hasHeader ? "" : "pt-4",
-            hasFooter ? "" : "pb-4",
-            "px-4",
-            "flex-c",
+            styles.contentBase,
+            !hasHeader && styles.contentNoHeader,
+            !hasFooter && styles.contentNoFooter,
           ]}
           style={props.bodyStyle}
         >
@@ -67,7 +58,9 @@ export default defineComponent({
 
         {/* Footer */}
         {hasFooter && (
-          <div class="border-t border-gray-200 dark:border-gray-700 p-4 flex-c">
+          <div
+            class={[styles.borderSection, "border-t p-4", styles.flexCenter]}
+          >
             {slots.footer?.()}
           </div>
         )}
