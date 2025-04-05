@@ -1,6 +1,41 @@
 import { defineComponent, createVNode } from "vue";
+const base = "y__base___bAyJg";
+const small = "y__small___9friG";
+const medium = "y__medium___I3XHU";
+const large = "y__large___2P9WJ";
+const round = "y__round___Tg26Q";
+const square = "y__square___cTlVe";
+const hoverEffect = "y__hoverEffect___gA9rr";
+const icon = "y__icon___MzuXh";
+const styles$1 = {
+  base,
+  small,
+  medium,
+  large,
+  round,
+  square,
+  "color-black": "y__color-black___PSeUk",
+  "plain-black": "y__plain-black___PVzRg",
+  "color-gray": "y__color-gray___l9MOg",
+  "plain-gray": "y__plain-gray___XoFOf",
+  "color-red": "y__color-red___1mZ9N",
+  "plain-red": "y__plain-red___-5EBl",
+  "color-yellow": "y__color-yellow___9w-WI",
+  "plain-yellow": "y__plain-yellow___pMe1u",
+  "color-green": "y__color-green___DSFdi",
+  "plain-green": "y__plain-green___gnnNf",
+  "color-blue": "y__color-blue___picbf",
+  "plain-blue": "y__plain-blue___lWAsn",
+  "color-indigo": "y__color-indigo___lL-bB",
+  "plain-indigo": "y__plain-indigo___OOwMy",
+  "color-purple": "y__color-purple___5G5ZD",
+  "plain-purple": "y__plain-purple___WXpDm",
+  "color-pink": "y__color-pink___GHc42",
+  "plain-pink": "y__plain-pink___IY4vm",
+  hoverEffect,
+  icon
+};
 const props = {
-  // 新增
   size: {
     type: String,
     default: "medium"
@@ -28,42 +63,25 @@ const Button = /* @__PURE__ */ defineComponent({
   setup(props2, {
     slots
   }) {
-    const size = {
-      small: {
-        x: "1",
-        y: "1",
-        text: "sm"
-      },
-      medium: {
-        x: "2",
-        y: "2",
-        text: "base"
-      },
-      large: {
-        x: "3",
-        y: "2",
-        text: "lg"
-      }
+    const getColorClass = () => {
+      const classKey = props2.plain ? `plain-${props2.color}` : `color-${props2.color}`;
+      return styles$1[classKey] || "";
     };
-    return () => createVNode("button", {
-      "class": `
-          py-${size[props2.size].y}
-          px-${size[props2.size].x}
-          ${props2.round ? "rounded-full" : "rounded-lg"}
-          bg-${props2.color}-${props2.plain ? "100" : "500"}
-          hover:bg-${props2.color}-400
-          border-${props2.color}-${props2.plain ? "500" : "500"}
-          cursor-pointer
-          border-solid
-          text-${props2.plain ? props2.color + "-500" : "white-500"}
-          text-${size[props2.size].text}
-          hover:text-white
-          transition duration-300 ease-in-out transform hover:scale-105
-          mx-1
-          `
-    }, [props2.icon !== "" ? createVNode("i", {
-      "class": `i-ic-baseline-${props2.icon} p-3`
-    }, null) : "", slots.default ? slots.default() : ""]);
+    return () => {
+      var _a;
+      return createVNode("button", {
+        "class": [
+          styles$1.base,
+          styles$1[props2.size],
+          // 直接使用 size 映射
+          props2.round ? styles$1.round : styles$1.square,
+          getColorClass(),
+          styles$1.hoverEffect
+        ]
+      }, [props2.icon && createVNode("i", {
+        "class": `i-ic-baseline-${props2.icon} ${styles$1.icon}`
+      }, null), (_a = slots.default) == null ? void 0 : _a.call(slots)]);
+    };
   }
 });
 const withInstall = (comp) => {
@@ -77,6 +95,26 @@ const withInstall = (comp) => {
   return c;
 };
 const YButton = withInstall(Button);
+const cardBase = "y__cardBase___fwJUy";
+const shadowAlways = "y__shadowAlways___XJdQQ";
+const shadowHover = "y__shadowHover___I-Qe0";
+const shadowNever = "y__shadowNever___mSIuf";
+const borderSection = "y__borderSection___IrMWq";
+const contentBase = "y__contentBase___tt6nA";
+const contentNoHeader = "y__contentNoHeader___Wv-tR";
+const contentNoFooter = "y__contentNoFooter___od9D9";
+const flexCenter = "y__flexCenter___6RJzf";
+const styles = {
+  cardBase,
+  shadowAlways,
+  shadowHover,
+  shadowNever,
+  borderSection,
+  contentBase,
+  contentNoHeader,
+  contentNoFooter,
+  flexCenter
+};
 const Card = /* @__PURE__ */ defineComponent({
   name: "YCard",
   props: {
@@ -92,38 +130,27 @@ const Card = /* @__PURE__ */ defineComponent({
   setup(props2, {
     slots
   }) {
-    const shadowClass = {
-      always: "shadow-md",
-      hover: "shadow-none hover:hover:shadow-md",
-      never: "shadow-none"
-    }[props2.shadow];
+    const shadowClassMap = {
+      always: styles.shadowAlways,
+      hover: styles.shadowHover,
+      never: styles.shadowNever
+    };
     const hasHeader = !!slots.header;
     const hasFooter = !!slots.footer;
     const hasImage = !!slots.image;
     return () => {
       var _a, _b, _c, _d;
       return createVNode("div", {
-        "class": [
-          "rounded",
-          "border",
-          "border-gray-200",
-          "bg-white",
-          "dark:border-gray-700",
-          "dark:bg-gray-800",
-          shadowClass,
-          "transition-shadow",
-          "overflow-hidden"
-          // 确保图片圆角不溢出
-        ]
+        "class": [styles.cardBase, shadowClassMap[props2.shadow]]
       }, [hasImage && createVNode("div", {
-        "class": "border-b border-gray-200 dark:border-gray-700 felx-c"
+        "class": [styles.borderSection, styles.flexCenter, "border-b"]
       }, [(_a = slots.image) == null ? void 0 : _a.call(slots)]), hasHeader && createVNode("div", {
-        "class": "border-b border-gray-200 dark:border-gray-700 p-4 flex-c"
+        "class": [styles.borderSection, "border-b p-4", styles.flexCenter]
       }, [(_b = slots.header) == null ? void 0 : _b.call(slots)]), createVNode("div", {
-        "class": ["text-gray-700 dark:text-gray-300", hasHeader ? "" : "pt-4", hasFooter ? "" : "pb-4", "px-4", "flex-c"],
+        "class": [styles.contentBase, !hasHeader && styles.contentNoHeader, !hasFooter && styles.contentNoFooter],
         "style": props2.bodyStyle
       }, [(_c = slots.default) == null ? void 0 : _c.call(slots)]), hasFooter && createVNode("div", {
-        "class": "border-t border-gray-200 dark:border-gray-700 p-4 flex-c"
+        "class": [styles.borderSection, "border-t p-4", styles.flexCenter]
       }, [(_d = slots.footer) == null ? void 0 : _d.call(slots)])]);
     };
   }
