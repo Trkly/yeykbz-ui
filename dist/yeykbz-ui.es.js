@@ -1,4 +1,4 @@
-import { defineComponent, createVNode } from "vue";
+import { defineComponent, ref, createVNode } from "vue";
 const base = "y__base___bAyJg";
 const small = "y__small___9friG";
 const medium = "y__medium___I3XHU";
@@ -7,6 +7,7 @@ const round = "y__round___Tg26Q";
 const square = "y__square___cTlVe";
 const hoverEffect = "y__hoverEffect___gA9rr";
 const icon = "y__icon___MzuXh";
+const disabled = "y__disabled___-KtZ8";
 const styles$1 = {
   base,
   small,
@@ -33,9 +34,16 @@ const styles$1 = {
   "color-pink": "y__color-pink___GHc42",
   "plain-pink": "y__plain-pink___IY4vm",
   hoverEffect,
-  icon
+  icon,
+  disabled
 };
 const props = {
+  // 新增节流配置
+  throttle: {
+    type: Number,
+    default: 500
+    // 默认 500 毫秒
+  },
   size: {
     type: String,
     default: "medium"
@@ -61,8 +69,25 @@ const Button = /* @__PURE__ */ defineComponent({
   name: "YButton",
   props,
   setup(props2, {
-    slots
+    slots,
+    emit
   }) {
+    const lastClickTime = ref(0);
+    const isThrottling = ref(false);
+    const handleThrottledClick = (event) => {
+      const now = Date.now();
+      if (now - lastClickTime.value < props2.throttle) {
+        if (!isThrottling.value) {
+          isThrottling.value = true;
+          setTimeout(() => {
+            isThrottling.value = false;
+          }, props2.throttle - (now - lastClickTime.value));
+        }
+        return;
+      }
+      lastClickTime.value = now;
+      emit("click", event);
+    };
     const getColorClass = () => {
       const classKey = props2.plain ? `plain-${props2.color}` : `color-${props2.color}`;
       return styles$1[classKey] || "";
@@ -73,11 +98,14 @@ const Button = /* @__PURE__ */ defineComponent({
         "class": [
           styles$1.base,
           styles$1[props2.size],
-          // 直接使用 size 映射
           props2.round ? styles$1.round : styles$1.square,
           getColorClass(),
-          styles$1.hoverEffect
-        ]
+          styles$1.hoverEffect,
+          isThrottling.value ? styles$1.disabled : ""
+          // 新增禁用状态样式
+        ],
+        "disabled": isThrottling.value,
+        "onClick": handleThrottledClick
       }, [props2.icon && createVNode("i", {
         "class": `i-ic-baseline-${props2.icon} ${styles$1.icon}`
       }, null), (_a = slots.default) == null ? void 0 : _a.call(slots)]);

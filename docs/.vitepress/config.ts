@@ -1,4 +1,5 @@
 import { demoBlockPlugin } from "vitepress-theme-demoblock";
+import { vitepressDemoPlugin } from "vitepress-demo-plugin";
 import sidebar from "./theme/sidebar";
 const config = {
   title: "🔨  Yeykbz-UI",
@@ -16,14 +17,15 @@ const config = {
       },
     ],
     sidebar,
-    docFooter:{
+    docFooter: {
       prev: false,
-      next: false
-    }
+      next: false,
+    },
   },
   markdown: {
     config: (md) => {
       md.use(demoBlockPlugin);
+      md.use(vitepressDemoPlugin);
     },
   },
 };
