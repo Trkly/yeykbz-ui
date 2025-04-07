@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import Unocss from "unocss/vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
+import { execSync } from "child_process";
 const rollupOptions = {
   external: ["vue", "virtual:uno.css"],
   output: {
@@ -22,11 +23,31 @@ export default defineConfig({
       mode: "dist-chunk",
     }),
     vueJsx(),
+    {
+      name: "gzip-size-checker",
+      closeBundle() {
+        const files = [
+          "dist/yeykbz-ui.es.js",
+          "dist/yeykbz-ui.umd.js",
+          "dist/yeykbz-ui.iife.js",
+        ];
+        files.forEach((file) => {
+          const size = execSync(`node check-gzip.mjs ${file}`).toString();
+          console.log(`[Gzip Report] ${size}`);
+        });
+      },
+    },
   ],
   build: {
     // @ts-ignore
     rollupOptions,
     minify: "terser",
+    terserOptions: {
+      compress: {
+        defaults: true,
+        unused: true, // 删除未导出变量
+      },
+    },
     sourcemap: true,
     // @ts-ignore
     brotliSize: true, // 生成压缩大小报告
