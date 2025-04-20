@@ -1,0 +1,4 @@
+.main {
+  @apply box-border flex-auto block overflow-auto;
+  padding: 20px;
+}

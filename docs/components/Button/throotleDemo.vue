@@ -1,8 +1,8 @@
 <template>
   <div class="space-y-4">
-    <YButton @click="handleClick" :throttle="1000">1秒节流</YButton>
-    <YButton @click="handleClick" :throttle="2000" color="red">2秒节流</YButton>
-    <YButton @click="handleClick" :throttle="3000" color="green" plain
+    <YButton :throttle="1000" @click="handleClick">1秒节流</YButton>
+    <YButton :throttle="2000" color="red" @click="handleClick">2秒节流</YButton>
+    <YButton :throttle="3000" color="green" plain @click="handleClick"
       >3秒节流</YButton
     >
   </div>

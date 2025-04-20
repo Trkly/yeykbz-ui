@@ -1,5 +1,5 @@
 import { DefineComponent } from "vue";
-import Card from "./Card";
+import Card from "./Card.vue";
 import { withInstall } from "../utils/withInstall";
 
 // 使用 withInstall 函数来增强 Button 组件

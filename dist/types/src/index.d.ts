@@ -1,3 +1,10 @@
 export { YeykbzUI } from "./install";
 export * from "./Button";
 export * from "./Card";
+export * from "./Aside";
+export * from "./Header";
+export * from "./Footer";
+export * from "./Main";
+export * from "./Container";
+export * from "./DropDown";
+export * from "./DropDownMenuItem";

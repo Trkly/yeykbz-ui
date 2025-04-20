@@ -1,5 +1,5 @@
 import { DefineComponent } from "vue";
-import Button from "./Button";
+import Button from "./Button.vue";
 import { withInstall } from "../utils/withInstall";
 
 // 使用 withInstall 函数来增强 Button 组件

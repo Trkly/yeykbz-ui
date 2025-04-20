@@ -1,0 +1,4 @@
+.aside {
+  @apply overflow-auto box-border flex-shrink-0
+  width: 300px;
+}

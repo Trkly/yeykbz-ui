@@ -1,4 +1,3 @@
-import { demoBlockPlugin } from "vitepress-theme-demoblock";
 import { vitepressDemoPlugin } from "vitepress-demo-plugin";
 import sidebar from "./theme/sidebar";
 const config = {
@@ -24,7 +23,6 @@ const config = {
   },
   markdown: {
     config: (md) => {
-      md.use(demoBlockPlugin);
       md.use(vitepressDemoPlugin);
     },
   },

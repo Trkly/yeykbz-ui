@@ -26,7 +26,7 @@ import {
   watch,
   watchEffect,
   withCtx
-} from "./chunk-Z3VN44QF.js";
+} from "./chunk-IA4MHOT7.js";
 import {
   __commonJS,
   __export,
@@ -9850,7 +9850,7 @@ var {
   createHighlighter
 );
 
-// node_modules/.pnpm/vitepress-demo-plugin@1.3.1_d5bf7549e190255683cabf0204d4f268/node_modules/vitepress-demo-plugin/dist/index.js
+// node_modules/.pnpm/vitepress-demo-plugin@1.3.1_580d91b8a310d3c6274d7ed208cb5c32/node_modules/vitepress-demo-plugin/dist/index.js
 var import_path = __toESM(require_path());
 var import_fs = __toESM(require_fs());
 var it = (i, n) => {

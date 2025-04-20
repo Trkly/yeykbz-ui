@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,        // 启用 ES 模块互操作性
+    "allowSyntheticDefaultImports": true, // 允许默认导入
+    "moduleResolution": "node",      // 使用 Node.js 模块解析策略
+    "paths": {
+      "@/*": ["./src/*"],
+      "~demo": ["./docs/.vitepress/demo"]
+    }
+  }
+}

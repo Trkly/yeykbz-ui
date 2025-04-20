@@ -1,0 +1,3 @@
+.container {
+  @apply flex flex-1 flex-basis-auto box-border min-w-0;
+}

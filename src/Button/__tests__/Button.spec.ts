@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
-import YButton from "../Button";
+import YButton from "../Button.vue";
 import styles from "../Button.module.css";
 
 describe("YButton 组件测试", () => {
@@ -15,7 +15,7 @@ describe("YButton 组件测试", () => {
     expect(wrapper.element.getAttribute("class")).toContain(styles.medium);
     expect(wrapper.element.getAttribute("class")).toContain(styles.square);
     expect(wrapper.element.getAttribute("class")).toContain(
-      styles["color-blue"]
+      styles["color-blue"],
     );
     expect(wrapper.element.getAttribute("class")).toContain(styles.hoverEffect);
 
@@ -29,7 +29,7 @@ describe("YButton 组件测试", () => {
       const wrapper = mount(YButton, { props: { size: "small" } });
       expect(wrapper.element.getAttribute("class")).toContain(styles.small);
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles.medium
+        styles.medium,
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(styles.large);
     });
@@ -46,7 +46,7 @@ describe("YButton 组件测试", () => {
       expect(wrapper.element.getAttribute("class")).toContain(styles.large);
       expect(wrapper.element.getAttribute("class")).not.toContain(styles.small);
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles.medium
+        styles.medium,
       );
     });
   });
@@ -56,87 +56,87 @@ describe("YButton 组件测试", () => {
     it("应用黑色主题", () => {
       const wrapper = mount(YButton, { props: { color: "black" } });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["color-black"]
+        styles["color-black"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-blue"]
+        styles["color-blue"],
       );
     });
 
     it("应用灰色主题", () => {
       const wrapper = mount(YButton, { props: { color: "gray" } });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["color-gray"]
+        styles["color-gray"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-blue"]
+        styles["color-blue"],
       );
     });
 
     it("应用红色主题", () => {
       const wrapper = mount(YButton, { props: { color: "red" } });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["color-red"]
+        styles["color-red"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-blue"]
+        styles["color-blue"],
       );
     });
 
     it("应用黄色主题", () => {
       const wrapper = mount(YButton, { props: { color: "yellow" } });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["color-yellow"]
+        styles["color-yellow"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-blue"]
+        styles["color-blue"],
       );
     });
 
     it("应用绿色主题", () => {
       const wrapper = mount(YButton, { props: { color: "green" } });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["color-green"]
+        styles["color-green"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-blue"]
+        styles["color-blue"],
       );
     });
 
     it("应用蓝色主题", () => {
       const wrapper = mount(YButton, { props: { color: "blue" } });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["color-blue"]
+        styles["color-blue"],
       );
     });
 
     it("应用靛蓝色主题", () => {
       const wrapper = mount(YButton, { props: { color: "indigo" } });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["color-indigo"]
+        styles["color-indigo"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-blue"]
+        styles["color-blue"],
       );
     });
 
     it("应用紫色主题", () => {
       const wrapper = mount(YButton, { props: { color: "purple" } });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["color-purple"]
+        styles["color-purple"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-blue"]
+        styles["color-blue"],
       );
     });
 
     it("应用粉色主题", () => {
       const wrapper = mount(YButton, { props: { color: "pink" } });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["color-pink"]
+        styles["color-pink"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-blue"]
+        styles["color-blue"],
       );
     });
   });
@@ -158,10 +158,10 @@ describe("YButton 组件测试", () => {
         },
       });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["plain-black"]
+        styles["plain-black"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-black"]
+        styles["color-black"],
       );
     });
 
@@ -173,10 +173,10 @@ describe("YButton 组件测试", () => {
         },
       });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["plain-gray"]
+        styles["plain-gray"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-gray"]
+        styles["color-gray"],
       );
     });
 
@@ -188,10 +188,10 @@ describe("YButton 组件测试", () => {
         },
       });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["plain-red"]
+        styles["plain-red"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-red"]
+        styles["color-red"],
       );
     });
 
@@ -203,10 +203,10 @@ describe("YButton 组件测试", () => {
         },
       });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["plain-yellow"]
+        styles["plain-yellow"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-yellow"]
+        styles["color-yellow"],
       );
     });
 
@@ -218,10 +218,10 @@ describe("YButton 组件测试", () => {
         },
       });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["plain-green"]
+        styles["plain-green"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-green"]
+        styles["color-green"],
       );
     });
 
@@ -233,10 +233,10 @@ describe("YButton 组件测试", () => {
         },
       });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["plain-blue"]
+        styles["plain-blue"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-blue"]
+        styles["color-blue"],
       );
     });
 
@@ -248,10 +248,10 @@ describe("YButton 组件测试", () => {
         },
       });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["plain-indigo"]
+        styles["plain-indigo"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-indigo"]
+        styles["color-indigo"],
       );
     });
 
@@ -263,10 +263,10 @@ describe("YButton 组件测试", () => {
         },
       });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["plain-purple"]
+        styles["plain-purple"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-purple"]
+        styles["color-purple"],
       );
     });
 
@@ -278,10 +278,10 @@ describe("YButton 组件测试", () => {
         },
       });
       expect(wrapper.element.getAttribute("class")).toContain(
-        styles["plain-pink"]
+        styles["plain-pink"],
       );
       expect(wrapper.element.getAttribute("class")).not.toContain(
-        styles["color-pink"]
+        styles["color-pink"],
       );
     });
   });

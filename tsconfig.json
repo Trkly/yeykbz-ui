@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",         // 使用最新ES标准
     "module": "ESNext",         // 配合Vite的ESM规范
-    "moduleResolution": "bundler", // 必须的模块解析策略
+    "moduleResolution": "node", // 必须的模块解析策略
     "strict": true,             // 开启所有严格类型检查
     "jsx": "preserve",          // 支持Vue JSX语法
     "jsxFactory": "h",
@@ -13,8 +13,7 @@
     "baseUrl": ".",             // 基础路径解析
     "paths": {
       "@/*": ["src/*"],         // 必须与vite.config.ts的alias对应
-      "#/*": ["types/*"]     // 类型定义目录
-//      "vue": ["node_modules/vue/dist/vue.esm-bundler.js"]  // 显式指定路径
+      "#/*": ["types/*"],     // 类型定义目录
     },
 
     "allowJs": false,           // 纯TypeScript项目建议关闭
@@ -26,8 +25,9 @@
   "include": [
     "./**/*.*",
     "./shims-vue.d.ts",
-    "env.d.ts"
+    "env.d.ts",
+    
   ],
-  "exclude": ["node_modules", "dist"],
+  "exclude": ["node_modules", "dist", "docs/.vitepress/**/*.ts"],
   "allowSyntheticDefaultImports":"true",
 }

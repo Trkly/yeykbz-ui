@@ -5,36 +5,89 @@ import tseslint from '@typescript-eslint/eslint-plugin';
 import pluginVue from "eslint-plugin-vue";
 
 
-/** @type {import('eslint').Linter.Config[]} */
 export default [
-    { files: ["**/*.{js,mjs,cjs,ts,vue}"] },
+    // 基础文件匹配配置
     {
+        files: ["**/*.{js,mjs,cjs,ts,vue}"],
+        ignores: [
+            "**/*.sh",
+            "node_modules/",
+            "dist/",
+            "coverage/",
+            "**/*.md",
+            "**/*.scss",
+            "**/*.woff",
+            "**/*.ttf",
+            "src/test.ts",
+            "docs/"
+        ],
+        rules: {
+            "no-undef": "off"
+        }
+    },
+
+    // JavaScript 基础配置
+    pluginJs.configs.recommended,
+
+    // TypeScript 配置
+    {
+        files: ["**/*.ts", "**/*.tsx"],
         languageOptions: {
-            globals: globals.browser,
             parser: tsParser,
             parserOptions: {
-                ecmaVersion: 2020,
-                sourceType: 'module'
+                ecmaVersion: "latest",
+                sourceType: "module",
+                project: "./tsconfig.json"
             }
         },
         plugins: {
-            '@typescript-eslint': tseslint
-        }
-    },
-    pluginJs.configs.recommended,
-    ...pluginVue.configs["flat/essential"],
-    {
+            "@typescript-eslint": tseslint
+        },
+        rules: {
+            "@typescript-eslint/consistent-type-imports": "off",
+            "@typescript-eslint/no-unused-vars": "off",
+            "@typescript-eslint/no-explicit-any": "off"
+        },
         ignores: [
-            "**/*.sh",        // 忽略所有 .sh 文件
-            "node_modules/",  // 忽略 node_modules 目录
-            "lib/",           // 忽略 lib 目录
-            "coverage/",      // 忽略 coverage 目录
-            "**/*.md",        // 忽略所有 .md 文件
-            "**/*.scss",      // 忽略所有 .scss 文件
-            "**/*.woff",      // 忽略所有 .woff 文件
-            "**/*.ttf",       // 忽略所有 .ttf 文件
-            "src/test.ts",   // 忽略特定文件
-            "dist/"           // 忽略 dist 目录
+            "docs/.vitepress/**/*.ts",
         ]
     },
-];
+
+    // Vue 配置
+    ...pluginVue.configs["flat/recommended"],
+    {
+        files: ["**/*.vue"],
+        languageOptions: {
+            parser: pluginVue.parser,
+            parserOptions: {
+                parser: {
+                    ts: tsParser,
+                    js: "espree"
+                },
+                extraFileExtensions: [".vue"],
+                ecmaVersion: 2022,
+                sourceType: "module"
+            },
+            globals: {
+                ...globals.browser,
+                ...globals.es2021
+            }
+        },
+        rules: {
+            "vue/max-attributes-per-line": "off",
+            "vue/multi-word-component-names": "off",
+            "vue/no-v-html": "off",
+            "vue/require-default-prop": "off",
+            "vue/html-self-closing": "off",
+            "vue/singleline-html-element-content-newline": "off",
+            "vue/html-closing-bracket-newline": "off",
+        },
+    },
+
+    // 全局通用规则
+    {
+        rules: {
+
+        }
+    }
+]

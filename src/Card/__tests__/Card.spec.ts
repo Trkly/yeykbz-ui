@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
-import YCard from "../Card";
+import YCard from "../Card.vue";
 import style from "../Card.module.css"; // 导入 CSS Modules
 import { h } from "vue";
 
@@ -32,7 +32,7 @@ describe("YCard 组件测试", () => {
       const wrapper = mount(YCard, { props: { shadow: "hover" } });
       expect(wrapper.element.classList.contains(style.shadowHover)).toBe(true);
       expect(wrapper.element.classList.contains(style.shadowAlways)).toBe(
-        false
+        false,
       );
       expect(wrapper.element.classList.contains(style.shadowNever)).toBe(false);
     });
@@ -41,7 +41,7 @@ describe("YCard 组件测试", () => {
       const wrapper = mount(YCard, { props: { shadow: "never" } });
       expect(wrapper.element.classList.contains(style.shadowNever)).toBe(true);
       expect(wrapper.element.classList.contains(style.shadowAlways)).toBe(
-        false
+        false,
       );
       expect(wrapper.element.classList.contains(style.shadowHover)).toBe(false);
     });
@@ -62,13 +62,13 @@ describe("YCard 组件测试", () => {
 
     // 验证自定义样式
     expect(wrapper.find(`.${style.contentBase}`).attributes("style")).toContain(
-      "background-color: #f0f0f0;"
+      "background-color: #f0f0f0;",
     );
     expect(wrapper.find(`.${style.contentBase}`).attributes("style")).toContain(
-      "color: #333;"
+      "color: #333;",
     );
     expect(wrapper.find(`.${style.contentBase}`).attributes("style")).toContain(
-      "padding: 20px;"
+      "padding: 20px;",
     );
   });
 
@@ -86,12 +86,12 @@ describe("YCard 组件测试", () => {
     });
 
     const imageSlot = wrapper.find(
-      `.${style.borderSection}.${style.flexCenter}`
+      `.${style.borderSection}.${style.flexCenter}`,
     );
     expect(imageSlot.exists()).toBe(true);
     expect(imageSlot.find("img").exists()).toBe(true);
     expect(imageSlot.find("img").attributes("src")).toBe(
-      "https://picsum.photos/600/200"
+      "https://picsum.photos/600/200",
     );
   });
 
@@ -104,7 +104,7 @@ describe("YCard 组件测试", () => {
     });
 
     const headerSlot = wrapper.find(
-      `.${style.borderSection}.${style.flexCenter}.border-b.p-4`
+      `.${style.borderSection}.${style.flexCenter}.border-b.p-4`,
     );
     expect(headerSlot.exists()).toBe(true);
     expect(headerSlot.text()).toContain("卡片标题");
@@ -119,7 +119,7 @@ describe("YCard 组件测试", () => {
     });
 
     const footerSlot = wrapper.find(
-      `.${style.borderSection}.${style.flexCenter}.border-t.p-4`
+      `.${style.borderSection}.${style.flexCenter}.border-t.p-4`,
     );
     expect(footerSlot.exists()).toBe(true);
     expect(footerSlot.text()).toContain("卡片底部");
@@ -143,17 +143,17 @@ describe("YCard 组件测试", () => {
 
     // 验证图片插槽
     const imageSlot = wrapper.find(
-      `.${style.borderSection}.${style.flexCenter}`
+      `.${style.borderSection}.${style.flexCenter}`,
     );
     expect(imageSlot.exists()).toBe(true);
     expect(imageSlot.find("img").exists()).toBe(true);
     expect(imageSlot.find("img").attributes("src")).toBe(
-      "https://picsum.photos/600/200"
+      "https://picsum.photos/600/200",
     );
 
     // 验证 Header 插槽
     const headerSlot = wrapper.find(
-      `.${style.borderSection}.${style.flexCenter}.border-b.p-4`
+      `.${style.borderSection}.${style.flexCenter}.border-b.p-4`,
     );
     expect(headerSlot.exists()).toBe(true);
     expect(headerSlot.text()).toContain("卡片标题");
@@ -165,7 +165,7 @@ describe("YCard 组件测试", () => {
 
     // 验证 Footer 插槽
     const footerSlot = wrapper.find(
-      `.${style.borderSection}.${style.flexCenter}.border-t.p-4`
+      `.${style.borderSection}.${style.flexCenter}.border-t.p-4`,
     );
     expect(footerSlot.exists()).toBe(true);
     expect(footerSlot.text()).toContain("卡片底部");

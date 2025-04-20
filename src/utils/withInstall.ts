@@ -1,7 +1,7 @@
 import type { App, DefineComponent, Plugin } from "vue";
 
 export const withInstall = <T extends DefineComponent>(
-  comp: T & { name?: string }
+  comp: T & { name?: string },
 ) => {
   // eslint-disable-next-line no-unused-vars
   const c = comp as T & { name: string } & { install?: (app: App) => void };
