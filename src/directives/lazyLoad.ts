@@ -24,7 +24,8 @@ const lazyImageDirective: Directive = {
   mounted(el: HTMLImageElement, binding: LazyImageBinding) {
     // 获取绑定值中的图片 URL
     const src = binding.value;
-
+    // 仅在浏览器环境执行
+    if (typeof window === "undefined") return;
     // 设置 data-src 属性
     el.dataset.src = src;
 
