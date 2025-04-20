@@ -1,6 +1,6 @@
 {
   "name": "yeykbz-ui",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "type": "module",
   "style": "dist/yeykbz-ui.css",
@@ -33,6 +33,7 @@
     "@vitejs/plugin-vue-jsx": "^4.1.1",
     "@vueuse/core": "^13.1.0",
     "globals": "^16.0.0",
+    "intersection-observer-polyfill": "^0.1.0",
     "vue": "^3.4.21"
   },
   "devDependencies": {

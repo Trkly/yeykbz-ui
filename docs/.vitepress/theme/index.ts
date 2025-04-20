@@ -1,5 +1,6 @@
 import "../../../dist/yeykbz-ui.css"; // 引入组件库的样式
 import "./style/var.css";
+import "intersection-observer-polyfill";
 import DefaultTheme from "vitepress/theme";
 import { YeykbzUI } from "../../../src/index";
 // 主题样式
