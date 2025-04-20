@@ -26,6 +26,7 @@ const lazyImageDirective: Directive = {
     const src = binding.value;
     // 仅在浏览器环境执行
     if (typeof window === "undefined") return;
+    console.log("lazyLoad==", typeof window);
     // 设置 data-src 属性
     el.dataset.src = src;
 
@@ -37,6 +38,8 @@ const lazyImageDirective: Directive = {
     observer.observe(el);
   },
   beforeUnmount(el: HTMLImageElement) {
+    if (typeof window === "undefined") return;
+    console.log("unMount--lazyLoad==", typeof window);
     // 停止观察该元素
     observer.unobserve(el);
   },
