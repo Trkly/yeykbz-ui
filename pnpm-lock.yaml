@@ -26,11 +26,14 @@ importers:
       globals:
         specifier: ^16.0.0
         version: 16.0.0
+      intersection-observer:
+        specifier: ^0.12.2
+        version: 0.12.2
       intersection-observer-polyfill:
         specifier: ^0.1.0
         version: 0.1.0
       vue:
-        specifier: ^3.4.21
+        specifier: ^3.5.13
         version: 3.5.13(typescript@5.8.2)
     devDependencies:
       '@iconify-json/ic':
@@ -1941,6 +1944,9 @@ packages:
 
   intersection-observer-polyfill@0.1.0:
     resolution: {integrity: sha512-kYxriUk7Dl8GPu2TuOFAbtG5+UK0LLrLzlUErF8R9w5iPWmrtfVZsjCYbGF0/SyRDo1VfHMOZYBB2svb2locbw==}
+
+  intersection-observer@0.12.2:
+    resolution: {integrity: sha512-7m1vEcPCxXYI8HqnL8CKI6siDyD+eIWSwgB3DZA+ZTogxk9I4CDnj4wilt9x/+/QbHI4YG5YZNmC6458/e9Ktg==}
 
   irregular-plurals@3.5.0:
     resolution: {integrity: sha512-1ANGLZ+Nkv1ptFb2pa8oG8Lem4krflKuX/gINiHJHjJUKaJHk/SXk5x6K3J+39/p0h1RQ2saROclJJ+QLvETCQ==}
@@ -5206,6 +5212,8 @@ snapshots:
   ini@4.1.1: {}
 
   intersection-observer-polyfill@0.1.0: {}
+
+  intersection-observer@0.12.2: {}
 
   irregular-plurals@3.5.0: {}
 

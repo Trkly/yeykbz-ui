@@ -8,3 +8,5 @@ export * from "./Main";
 export * from "./Container";
 export * from "./DropDown";
 export * from "./DropDownMenuItem";
+export * from "./Table";
+export * from "./Radio";

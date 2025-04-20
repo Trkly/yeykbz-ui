@@ -33,8 +33,9 @@
     "@vitejs/plugin-vue-jsx": "^4.1.1",
     "@vueuse/core": "^13.1.0",
     "globals": "^16.0.0",
+    "intersection-observer": "^0.12.2",
     "intersection-observer-polyfill": "^0.1.0",
-    "vue": "^3.4.21"
+    "vue": "^3.5.13"
   },
   "devDependencies": {
     "@iconify-json/ic": "^1.2.2",

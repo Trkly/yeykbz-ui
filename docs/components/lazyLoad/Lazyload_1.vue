@@ -1,5 +1,6 @@
 <template>
-  <div class="scroll-container">
+    <ClientOnly>
+        <div class="scroll-container">
     <div v-for="i in 20" :key="i" class="list-item">
       <img
         v-lazyLoad="`https://picsum.photos/200/200?random=${i}`"
@@ -8,6 +9,7 @@
       />
     </div>
   </div>
+    </ClientOnly>
 </template>
 
 <style>

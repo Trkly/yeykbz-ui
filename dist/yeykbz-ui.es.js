@@ -1,4 +1,4 @@
-import { defineComponent, ref, computed, createElementBlock, openBlock, normalizeClass, unref, createCommentVNode, renderSlot, createElementVNode, normalizeStyle, watch, getCurrentScope, onScopeDispose, toValue, onMounted, onUnmounted, withDirectives, vShow } from "vue";
+import { defineComponent, ref, computed, createElementBlock, openBlock, normalizeClass, unref, createCommentVNode, renderSlot, createElementVNode, normalizeStyle, watch, getCurrentScope, onScopeDispose, toValue, onMounted, onUnmounted, withDirectives, vShow, Fragment, renderList, toDisplayString, vModelRadio, createTextVNode } from "vue";
 const base = "y__base___bAyJg";
 const small = "y__small___9friG";
 const medium = "y__medium___I3XHU";
@@ -7,8 +7,8 @@ const round = "y__round___Tg26Q";
 const square = "y__square___cTlVe";
 const hoverEffect = "y__hoverEffect___gA9rr";
 const icon = "y__icon___MzuXh";
-const disabled$1 = "y__disabled___-KtZ8";
-const styles$8 = {
+const disabled = "y__disabled___-KtZ8";
+const styles$6 = {
   base,
   small,
   medium,
@@ -35,10 +35,10 @@ const styles$8 = {
   "plain-pink": "y__plain-pink___IY4vm",
   hoverEffect,
   icon,
-  disabled: disabled$1
+  disabled
 };
-const _hoisted_1$2 = ["disabled"];
-const _sfc_main$8 = /* @__PURE__ */ defineComponent({
+const _hoisted_1$4 = ["disabled"];
+const _sfc_main$a = /* @__PURE__ */ defineComponent({
   ...{
     name: "YButton"
   },
@@ -77,7 +77,7 @@ const _sfc_main$8 = /* @__PURE__ */ defineComponent({
     const isThrottling = ref(false);
     const colorClass = computed(() => {
       const classKey = props.plain ? `plain-${props.color}` : `color-${props.color}`;
-      return styles$8[classKey] || "";
+      return styles$6[classKey] || "";
     });
     const handleThrottledClick = (event) => {
       const now = Date.now();
@@ -98,22 +98,22 @@ const _sfc_main$8 = /* @__PURE__ */ defineComponent({
       return openBlock(), createElementBlock("button", {
         class: normalizeClass([
           "deep-button",
-          unref(styles$8).base,
-          unref(styles$8)[__props.size],
-          __props.round ? unref(styles$8).round : unref(styles$8).square,
+          unref(styles$6).base,
+          unref(styles$6)[__props.size],
+          __props.round ? unref(styles$6).round : unref(styles$6).square,
           colorClass.value,
-          unref(styles$8).hoverEffect,
-          isThrottling.value ? unref(styles$8).disabled : ""
+          unref(styles$6).hoverEffect,
+          isThrottling.value ? unref(styles$6).disabled : ""
         ]),
         disabled: isThrottling.value,
         onClick: handleThrottledClick
       }, [
         __props.icon ? (openBlock(), createElementBlock("i", {
           key: 0,
-          class: normalizeClass([`i-ic-baseline-${__props.icon}`, unref(styles$8).icon])
+          class: normalizeClass([`i-ic-baseline-${__props.icon}`, unref(styles$6).icon])
         }, null, 2)) : createCommentVNode("", true),
         renderSlot(_ctx.$slots, "default")
-      ], 10, _hoisted_1$2);
+      ], 10, _hoisted_1$4);
     };
   }
 });
@@ -127,7 +127,7 @@ const withInstall = (comp) => {
   };
   return c;
 };
-const YButton = withInstall(_sfc_main$8);
+const YButton = withInstall(_sfc_main$a);
 const cardBase = "y__cardBase___fwJUy";
 const dark = "y__dark___uIxJ7";
 const shadowAlways = "y__shadowAlways___XJdQQ";
@@ -138,7 +138,7 @@ const contentBase = "y__contentBase___tt6nA";
 const contentNoHeader = "y__contentNoHeader___Wv-tR";
 const contentNoFooter = "y__contentNoFooter___od9D9";
 const flexCenter = "y__flexCenter___6RJzf";
-const styles$7 = {
+const styles$5 = {
   cardBase,
   dark,
   shadowAlways,
@@ -150,7 +150,7 @@ const styles$7 = {
   contentNoFooter,
   flexCenter
 };
-const _sfc_main$7 = /* @__PURE__ */ defineComponent({
+const _sfc_main$9 = /* @__PURE__ */ defineComponent({
   ...{
     name: "YCard"
   },
@@ -172,25 +172,25 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
     });
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", {
-        class: normalizeClass([unref(styles$7).cardBase, unref(styles$7)[`shadow${capitalizedShadow.value}`]])
+        class: normalizeClass([unref(styles$5).cardBase, unref(styles$5)[`shadow${capitalizedShadow.value}`]])
       }, [
         _ctx.$slots.image ? (openBlock(), createElementBlock("div", {
           key: 0,
-          class: normalizeClass([unref(styles$7).borderSection, unref(styles$7).flexCenter, "border-b"])
+          class: normalizeClass([unref(styles$5).borderSection, unref(styles$5).flexCenter, "border-b"])
         }, [
           renderSlot(_ctx.$slots, "image")
         ], 2)) : createCommentVNode("", true),
         _ctx.$slots.header ? (openBlock(), createElementBlock("div", {
           key: 1,
-          class: normalizeClass([unref(styles$7).borderSection, "border-b p-4", unref(styles$7).flexCenter])
+          class: normalizeClass([unref(styles$5).borderSection, "border-b p-4", unref(styles$5).flexCenter])
         }, [
           renderSlot(_ctx.$slots, "header")
         ], 2)) : createCommentVNode("", true),
         createElementVNode("div", {
           class: normalizeClass([
-            unref(styles$7).contentBase,
-            !_ctx.$slots.header && unref(styles$7).contentNoHeader,
-            !_ctx.$slots.footer && unref(styles$7).contentNoFooter
+            unref(styles$5).contentBase,
+            !_ctx.$slots.header && unref(styles$5).contentNoHeader,
+            !_ctx.$slots.footer && unref(styles$5).contentNoFooter
           ]),
           style: normalizeStyle(__props.bodyStyle)
         }, [
@@ -198,7 +198,7 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
         ], 6),
         _ctx.$slots.footer ? (openBlock(), createElementBlock("div", {
           key: 2,
-          class: normalizeClass([unref(styles$7).borderSection, "border-t p-4", unref(styles$7).flexCenter])
+          class: normalizeClass([unref(styles$5).borderSection, "border-t p-4", unref(styles$5).flexCenter])
         }, [
           renderSlot(_ctx.$slots, "footer")
         ], 2)) : createCommentVNode("", true)
@@ -206,12 +206,12 @@ const _sfc_main$7 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const YCard = withInstall(_sfc_main$7);
+const YCard = withInstall(_sfc_main$9);
 const aside = "y__aside___INsEk";
-const styles$6 = {
+const styles$4 = {
   aside
 };
-const _sfc_main$6 = /* @__PURE__ */ defineComponent({
+const _sfc_main$8 = /* @__PURE__ */ defineComponent({
   ...{
     name: "YAside"
   },
@@ -226,7 +226,7 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
     }));
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("aside", {
-        class: normalizeClass(["deep-aside", unref(styles$6).aside]),
+        class: normalizeClass(["deep-aside", unref(styles$4).aside]),
         style: normalizeStyle(asideStyle.value),
         role: "complementary",
         "aria-label": "侧边栏"
@@ -236,65 +236,65 @@ const _sfc_main$6 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const YAside = withInstall(_sfc_main$6);
+const YAside = withInstall(_sfc_main$8);
 const header = "y__header___epQhq";
-const styles$5 = {
+const styles$3 = {
   header
 };
-const _sfc_main$5 = /* @__PURE__ */ defineComponent({
+const _sfc_main$7 = /* @__PURE__ */ defineComponent({
   ...{ name: "YHeader" },
   __name: "Header",
   setup(__props) {
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("header", {
-        class: normalizeClass(["deep-header", unref(styles$5).header])
+        class: normalizeClass(["deep-header", unref(styles$3).header])
       }, [
         renderSlot(_ctx.$slots, "default")
       ], 2);
     };
   }
 });
-const YHeader = withInstall(_sfc_main$5);
-const styles$4 = {
+const YHeader = withInstall(_sfc_main$7);
+const styles$2 = {
   "vk-footer": "y__vk-footer___7zJVa"
 };
-const _sfc_main$4 = /* @__PURE__ */ defineComponent({
+const _sfc_main$6 = /* @__PURE__ */ defineComponent({
   ...{ name: "YFooter" },
   __name: "Footer",
   setup(__props) {
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("footer", {
-        class: normalizeClass(["deep-footer", unref(styles$4).footer])
+        class: normalizeClass(["deep-footer", unref(styles$2).footer])
       }, [
         renderSlot(_ctx.$slots, "default")
       ], 2);
     };
   }
 });
-const YFooter = withInstall(_sfc_main$4);
+const YFooter = withInstall(_sfc_main$6);
 const main = "y__main___0PHCn";
-const styles$3 = {
+const styles$1 = {
   main
 };
-const _sfc_main$3 = /* @__PURE__ */ defineComponent({
+const _sfc_main$5 = /* @__PURE__ */ defineComponent({
   ...{ name: "YMain" },
   __name: "Main",
   setup(__props) {
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("main", {
-        class: normalizeClass(["deep-main", unref(styles$3).main])
+        class: normalizeClass(["deep-main", unref(styles$1).main])
       }, [
         renderSlot(_ctx.$slots, "default")
       ], 2);
     };
   }
 });
-const YMain = withInstall(_sfc_main$3);
+const YMain = withInstall(_sfc_main$5);
 const container = "y__container___Fjb8H";
-const styles$2 = {
+const styles = {
   container
 };
-const _sfc_main$2 = /* @__PURE__ */ defineComponent({
+const _sfc_main$4 = /* @__PURE__ */ defineComponent({
   ...{ name: "YContainer" },
   __name: "Container",
   props: {
@@ -307,7 +307,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     };
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("section", {
-        class: normalizeClass(["deep-container", unref(styles$2).container]),
+        class: normalizeClass(["deep-container", unref(styles).container]),
         style
       }, [
         renderSlot(_ctx.$slots, "default")
@@ -315,7 +315,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const YContainer = withInstall(_sfc_main$2);
+const YContainer = withInstall(_sfc_main$4);
 function tryOnScopeDispose(fn) {
   if (getCurrentScope()) {
     onScopeDispose(fn);
@@ -491,22 +491,8 @@ function onClickOutside(target, handler, options = {}) {
   }
   return stop;
 }
-const bottom = "y__bottom___Kcmtw";
-const top = "y__top___GEFAR";
-const styles$1 = {
-  "dropdown-container": "y__dropdown-container___---H4",
-  "dropdown-trigger": "y__dropdown-trigger___zg5h8",
-  "dropdown-content": "y__dropdown-content___M3tts",
-  "is-open": "y__is-open___8-bFv",
-  bottom,
-  "bottom-right": "y__bottom-right___LUMHg",
-  "bottom-left": "y__bottom-left___bMfq1",
-  top,
-  "top-right": "y__top-right___WXAP-",
-  "top-left": "y__top-left___XI-hZ"
-};
-const _hoisted_1$1 = ["aria-expanded"];
-const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+const _hoisted_1$3 = ["aria-expanded"];
+const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   ...{
     name: "YDropDownMenu"
   },
@@ -543,30 +529,22 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
       return openBlock(), createElementBlock("div", {
         ref_key: "dropdownRef",
         ref: dropdownRef,
-        class: normalizeClass([
-          "deep-drop-down",
-          unref(styles$1)["dropdown-container"],
-          { "is-open": isOpen.value }
-        ])
+        class: normalizeClass(["dropdown-container", { "is-open": isOpen.value }])
       }, [
         createElementVNode("button", {
-          class: normalizeClass([unref(styles$1)["dropdown-trigger"]]),
+          class: "dropdown-trigger",
           "aria-haspopup": "true",
           "aria-expanded": isOpen.value,
           onClick: toggleDropdown
         }, [
-          renderSlot(_ctx.$slots, "trigger")
-        ], 10, _hoisted_1$1),
+          renderSlot(_ctx.$slots, "trigger", {}, void 0, true)
+        ], 8, _hoisted_1$3),
         withDirectives(createElementVNode("div", {
-          class: normalizeClass([
-            "deep-dropdown-content",
-            unref(styles$1)["dropdown-content"],
-            unref(styles$1)[dropdownPositionClass.value]
-          ]),
+          class: normalizeClass(["dropdown-content", [dropdownPositionClass.value]]),
           role: "menu",
           tabindex: "-1"
         }, [
-          renderSlot(_ctx.$slots, "default")
+          renderSlot(_ctx.$slots, "default", {}, void 0, true)
         ], 2), [
           [vShow, isOpen.value]
         ])
@@ -574,18 +552,21 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const YDropDownMenu = withInstall(
-  _sfc_main$1
-);
-const disabled = "y__disabled___USo31";
-const styles = {
-  "dropdown-item": "y__dropdown-item___HVXk4",
-  disabled
+const _export_sfc = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
 };
-const _hoisted_1 = ["disabled"];
-const _sfc_main = /* @__PURE__ */ defineComponent({
+const DropDownMenu = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-425f739b"]]);
+const YDropDownMenu = withInstall(
+  DropDownMenu
+);
+const _hoisted_1$2 = ["disabled"];
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   ...{
-    name: "DropDownMenuItem"
+    name: "YDropDownMenuItem"
   },
   __name: "DropDownMenuItem",
   props: {
@@ -602,23 +583,185 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("button", {
-        class: normalizeClass([
-          "deep-dropdown-menu-item",
-          unref(styles)["dropdown - item"],
-          { disabled: _ctx.disabled }
-        ]),
-        role: "menuitem",
         disabled: _ctx.disabled,
+        class: normalizeClass(["dropdown-item", { disabled: _ctx.disabled }]),
+        role: "menuitem",
         onClick: handleSelect
       }, [
-        renderSlot(_ctx.$slots, "default")
-      ], 10, _hoisted_1);
+        renderSlot(_ctx.$slots, "default", {}, void 0, true)
+      ], 10, _hoisted_1$2);
     };
   }
 });
+const DropDownMenuItem = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-e7ef5d16"]]);
 const YDropDownMenuItem = withInstall(
-  _sfc_main
+  DropDownMenuItem
 );
+const _hoisted_1$1 = { class: "table" };
+const _hoisted_2$1 = { class: "table-wrapper" };
+const _hoisted_3$1 = { class: "table-header" };
+const _hoisted_4 = { class: "table-body" };
+const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+  ...{ name: "YTable" },
+  __name: "Table",
+  props: {
+    data: { default: () => [] },
+    columns: { default: () => [] },
+    border: { type: Boolean, default: false },
+    stripe: { type: Boolean, default: false }
+  },
+  setup(__props) {
+    const props = __props;
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("div", _hoisted_1$1, [
+        createElementVNode("div", _hoisted_2$1, [
+          createElementVNode("div", _hoisted_3$1, [
+            createElementVNode("div", {
+              class: normalizeClass(["table-header-row", props.stripe ? "is-stripe" : ""])
+            }, [
+              (openBlock(true), createElementBlock(Fragment, null, renderList(props.columns, (column) => {
+                return openBlock(), createElementBlock("div", {
+                  key: column.key,
+                  class: normalizeClass(["table-header-cell", props.border ? "is-border" : ""])
+                }, toDisplayString(column.title), 3);
+              }), 128))
+            ], 2)
+          ]),
+          createElementVNode("div", _hoisted_4, [
+            (openBlock(true), createElementBlock(Fragment, null, renderList(props.data, (row) => {
+              return openBlock(), createElementBlock("div", {
+                key: row.key,
+                class: normalizeClass(["table-row", props.stripe ? "is-stripe" : ""])
+              }, [
+                (openBlock(true), createElementBlock(Fragment, null, renderList(props.columns, (column) => {
+                  return openBlock(), createElementBlock("div", {
+                    key: column.key,
+                    class: normalizeClass(["table-row-cell", props.border ? "is-border" : ""])
+                  }, toDisplayString(row[column.dataIndex]), 3);
+                }), 128))
+              ], 2);
+            }), 128))
+          ])
+        ])
+      ]);
+    };
+  }
+});
+const Table = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-7a7ab342"]]);
+const YTable = withInstall(Table);
+const _hoisted_1 = { class: "radio_input" };
+const _hoisted_2 = ["disabled", "name", "value"];
+const _hoisted_3 = { class: "radio_label" };
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  ...{ name: "YRadio" },
+  __name: "Radio",
+  props: {
+    label: { type: [String, Number, Boolean], default: "" },
+    modelValue: { type: [String, Number, Boolean, null], default: null },
+    name: { default: "" },
+    disabled: { type: Boolean, default: false }
+  },
+  emits: ["update:modelValue"],
+  setup(__props, { emit: __emit }) {
+    const radio = ref();
+    const emit = __emit;
+    const props = __props;
+    const modelValue = computed({
+      get: () => {
+        return props.modelValue;
+      },
+      set: (val) => {
+        emit("update:modelValue", val);
+        radio.value && radio.value.checked == modelValue.value == props.label;
+      }
+    });
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock("label", {
+        class: normalizeClass([
+          "radio",
+          { "is-checked": _ctx.label == modelValue.value, "is-disabled": _ctx.disabled }
+        ])
+      }, [
+        createElementVNode("span", _hoisted_1, [
+          _cache[1] || (_cache[1] = createElementVNode("span", { class: "radio_inner" }, null, -1)),
+          withDirectives(createElementVNode("input", {
+            ref_key: "radio",
+            ref: radio,
+            "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => modelValue.value = $event),
+            disabled: _ctx.disabled,
+            class: "radio_original",
+            name: _ctx.name,
+            value: props.label,
+            type: "radio"
+          }, null, 8, _hoisted_2), [
+            [vModelRadio, modelValue.value]
+          ])
+        ]),
+        createElementVNode("span", _hoisted_3, [
+          renderSlot(_ctx.$slots, "default", {}, void 0, true),
+          !_ctx.$slots.default ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
+            createTextVNode(toDisplayString(_ctx.label), 1)
+          ], 64)) : createCommentVNode("", true)
+        ])
+      ], 2);
+    };
+  }
+});
+const Radio = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-d5796d19"]]);
+const YRadio = withInstall(Radio);
+const eventHandlers$1 = /* @__PURE__ */ new Map();
+const debounceDirective = {
+  mounted(el, binding) {
+    const { event = "click" } = typeof binding.value === "object" ? binding.value : {};
+    const delay = typeof binding.value === "object" ? binding.value.delay || 1e3 : 1e3;
+    let timer = null;
+    const handler = typeof binding.value === "function" ? binding.value : binding.value.handler;
+    const debounceHandler = (...args) => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+      timer = setTimeout(() => {
+        handler(...args);
+        timer = null;
+      }, delay);
+    };
+    eventHandlers$1.set(el, { event, handler: debounceHandler });
+    el.addEventListener(event, debounceHandler);
+  },
+  beforeUnmount(el) {
+    const entry = eventHandlers$1.get(el);
+    if ((entry == null ? void 0 : entry.event) && entry.handler) {
+      el.removeEventListener(entry.event, entry.handler);
+    }
+    eventHandlers$1.delete(el);
+  }
+};
+const eventHandlers = /* @__PURE__ */ new Map();
+const throttleDirective = {
+  mounted(el, binding) {
+    const { event = "click" } = typeof binding.value === "object" ? binding.value : {};
+    const delay = typeof binding.value === "object" ? binding.value.delay || 1e3 : 1e3;
+    let timer = null;
+    const handler = typeof binding.value === "function" ? binding.value : binding.value.handler;
+    const throttleHandler = (...args) => {
+      if (!timer) {
+        handler(...args);
+        timer = setTimeout(() => {
+          timer = null;
+        }, delay);
+      }
+    };
+    eventHandlers.set(el, { event, handler: throttleHandler });
+    el.addEventListener(event, throttleHandler);
+  },
+  beforeUnmount(el) {
+    const entry = eventHandlers.get(el);
+    if ((entry == null ? void 0 : entry.event) && entry.handler) {
+      el.removeEventListener(entry.event, entry.handler);
+    }
+    eventHandlers.delete(el);
+  }
+};
 const components = [
   YButton,
   YCard,
@@ -628,12 +771,16 @@ const components = [
   YMain,
   YContainer,
   YDropDownMenu,
-  YDropDownMenuItem
+  YDropDownMenuItem,
+  YTable,
+  YRadio
 ];
 const install = (app) => {
   components.forEach((component) => {
     app.use(component);
   });
+  app.directive("debounce", debounceDirective);
+  app.directive("throttle", throttleDirective);
 };
 const YeykbzUI = {
   install,
@@ -649,6 +796,8 @@ export {
   YFooter,
   YHeader,
   YMain,
+  YRadio,
+  YTable,
   YeykbzUI
 };
 //# sourceMappingURL=yeykbz-ui.es.js.map

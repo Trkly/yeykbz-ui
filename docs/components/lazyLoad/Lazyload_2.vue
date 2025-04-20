@@ -1,8 +1,10 @@
 <template>
-  <img
-    v-lazyLoad="'https://picsum.photos/300/200'"
-    class="custom-placeholder"
-  />
+  <ClientOnly>
+      <img
+              v-lazyLoad="'https://picsum.photos/300/200'"
+              class="custom-placeholder"
+      />
+  </ClientOnly>
 </template>
 
 <script setup>
